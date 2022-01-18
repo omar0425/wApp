@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const api = {
     key: "dbe67cf3c78d1447de866b9e98991a97",
-    api: "http://api.weatherstack.com/current?access_key=",
+    url: "http://api.weatherstack.com/current?access_key=",
     units: "f",
   };
   const searchBar = document.querySelector(".search-bar");
@@ -13,7 +13,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getLocation(e) {
     if (e.key === "Enter") {
-      console.log(searchBar.value);
+      fetchWeather(searchBar.value);
     }
+  }
+
+  function fetchWeather(query) {
+    fetch(`${api.url}${api.key}&query=${query}&units=${api.units}`)
+      .then((resp) => resp.json())
+      .then(displayWeather);
+  }
+
+  function displayWeather(weather) {
+    console.log(weather);
   }
 });
