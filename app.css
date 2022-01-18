@@ -25,11 +25,14 @@ body {
 input.search-bar {
   border: none;
   outline: none;
-  padding: 0.5em 1em;
+  padding: 0.4em 1em;
   border-radius: 24px;
   background: #7c7c7c2b;
   color: white;
   font-family: inherit;
-  font-size: 120%;
+  font-size: 105%;
   width: 60%;
+}
+h1.temp {
+  margin: 0;
 }
